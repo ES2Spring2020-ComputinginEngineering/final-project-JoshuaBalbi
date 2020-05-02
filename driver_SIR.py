@@ -96,7 +96,7 @@ plt.show()
 
 #this set of code allows us to 3d plot every point combination of different
 #betas and sigmas and their peaks it uses the function mcpeaks and its 
-#results X,Y,Z to accurately plot the peaks of every combination
+#results X,Y,Z to accurately plot the peaks of every combination.
 fig = plt.figure(figsize=(10,5))
 ax = plt.axes(projection="3d")
 ax.plot_surface(Y, X, Z)
