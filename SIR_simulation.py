@@ -47,7 +47,7 @@ def infected_ratio(p):
 #this list is a b amount of lists in a list. it has two parameters b and p
 #b is the amount of beta you want ranging from 0-1 with a stepsize of 1/b. 
 #it uses the function iterate with every beta in a forloop and prints out 
-#every infection curve in the range of 0-1. sigma is constant
+#every infection curve in the range of 0-1. sigma is constant.
 def B_list(b, S, I, R, t):
     B=[]
     for i in range(0,b):
