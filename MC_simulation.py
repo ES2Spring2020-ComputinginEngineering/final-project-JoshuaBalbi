@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Apr 23 20:00:39 2020
-
 @author: Joshuabalbi
 """
 #Import statements-------------------------------------------------------------
@@ -102,6 +101,7 @@ def convert(lst,p):
 #and then retunrs a list of lists containing the infected curve and it is used
 #to notice the variation of the monte carlo simulation
 def infcurve(p,b,y):
+    print("Starting infected curves test")
     Inflist=[]
     for i in range(0,10):
         S_list,I_list,R_list,T_list =iterate_MC(p,b,y,200)
@@ -114,9 +114,10 @@ def infcurve(p,b,y):
 #it uses the function iterate with every beta in a forloop and prints out 
 #every infection curve in the range of 0-1. sigma is constant
 def B_listC(b,p):
+    print("Starting infected curves test b is changing and y is constant")
     BC=[]
     for i in range(0,b):
-        S_list,I_list,R_list,T_list=iterate_MC(p,i+1/14,1/14,200)
+        S_list,I_list,R_list,T_list=iterate_MC(p,(i+1)/14,1/14,200)
         B=[]
         for j in I_list:
             B.append(j/p)
@@ -128,9 +129,10 @@ def B_listC(b,p):
 #it uses the function iterate with every sigma in a forloop and prints out 
 #every infection curve in the range of 0-1. beta is constant
 def Y_listC(y,p):
+    print("Starting infected curves test y is changing and b is constant")
     YC=[]
     for i in range(0,y):
-        S_list,I_list,R_list,T_list=iterate_MC(p,14/14,i+1/14,200)
+        S_list,I_list,R_list,T_list=iterate_MC(p,14/14,(i+1)/14,200)
         Y=[]
         for j in I_list:
             Y.append(j/p)
@@ -144,4 +146,3 @@ def mcpeak(x, y):
     S_list,I_list,R_list,T_list=iterate_MC(100000,x,y,200)
     Ilist=convert(I_list,100000)
     return max(Ilist)
-
