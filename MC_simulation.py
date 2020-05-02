@@ -100,11 +100,11 @@ def convert(lst,p):
 #what the function does it just repeats the function iterate n amount of times
 #and then retunrs a list of lists containing the infected curve and it is used
 #to notice the variation of the monte carlo simulation
-def infcurve(p,b,y):
-    print("Starting infected curves test")
+def infcurve(p,b,y,m):
+    print("Starting infected variation curves test")
     Inflist=[]
     for i in range(0,10):
-        S_list,I_list,R_list,T_list =iterate_MC(p,b,y,200)
+        S_list,I_list,R_list,T_list =iterate_MC(p,b,y,m)
         C=convert(I_list,p)
         Inflist.append(C)
     return Inflist
@@ -113,11 +113,11 @@ def infcurve(p,b,y):
 #b is the amount of beta you want ranging from 0-1 with a stepsize of 1/b. 
 #it uses the function iterate with every beta in a forloop and prints out 
 #every infection curve in the range of 0-1. sigma is constant
-def B_listC(b,p):
+def B_listC(b,p,m):
     print("Starting infected curves test b is changing and y is constant")
     BC=[]
     for i in range(0,b):
-        S_list,I_list,R_list,T_list=iterate_MC(p,(i+1)/14,1/14,200)
+        S_list,I_list,R_list,T_list=iterate_MC(p,(i+1)/14,1/14,m)
         B=[]
         for j in I_list:
             B.append(j/p)
@@ -128,11 +128,11 @@ def B_listC(b,p):
 #y is the amount of sigma you want ranging from 0-1 with a stepsize of 1/y. 
 #it uses the function iterate with every sigma in a forloop and prints out 
 #every infection curve in the range of 0-1. beta is constant
-def Y_listC(y,p):
+def Y_listC(y,p,m):
     print("Starting infected curves test y is changing and b is constant")
     YC=[]
     for i in range(0,y):
-        S_list,I_list,R_list,T_list=iterate_MC(p,14/14,(i+1)/14,200)
+        S_list,I_list,R_list,T_list=iterate_MC(p,14/14,(i+1)/14,m)
         Y=[]
         for j in I_list:
             Y.append(j/p)
@@ -142,7 +142,7 @@ def Y_listC(y,p):
 #mc peaks is used in order to find the maximum of each infected graph
 #we use np.meshgrid and 3d graph in matplotlib in order to run every
 #combination of beta and sigma possible.
-def mcpeak(x, y):
-    S_list,I_list,R_list,T_list=iterate_MC(100000,x,y,200)
-    Ilist=convert(I_list,100000)
+def mcpeak(x, y, p, m):
+    S_list,I_list,R_list,T_list=iterate_MC(p,x,y,m)
+    Ilist=convert(I_list,p)
     return max(Ilist)
