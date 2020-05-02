@@ -14,7 +14,9 @@ from MC_simulation import *
 #some variables carry over from one graph to the other   
 
 #this is the variables for Monte Carlo SIR model
-p=100
+#p value used in actual report is 100,000 but in order for it to run qukcker
+#1,000 recomended
+p=1000
 beta=3/14
 sigma=1/14
 days=150
