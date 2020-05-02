@@ -33,6 +33,7 @@ BC = B_listC(14,p)
 YC = Y_listC(14,p)
 
 #these are the variables for the Monte Carlo peak graph
+print("starting peaks 3d curve")
 Stepsize=14
 s=Stepsize
 x = np.linspace(1/s, 1, s)
