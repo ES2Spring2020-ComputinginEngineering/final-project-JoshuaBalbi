@@ -16,10 +16,10 @@ from MC_simulation import *
 #this is the variables for Monte Carlo SIR model
 #p value used in actual report is 100,000 but in order for it to run qukcker
 #1,000 recomended
-p=1000
+p=100
 beta=3/14
 sigma=1/14
-days=150
+days=200
 S_list,I_list,R_list,T_list =iterate_MC(p,beta,sigma,days)
 Slist=convert(S_list,p)
 Ilist=convert(I_list,p)
@@ -27,22 +27,22 @@ Rlist=convert(R_list,p)
 
 #this is the variable to find the infected curves of the same graph 
 #iterated ten times through with both variables as constants
-Inflist = infcurve(p,beta,sigma)
+Inflist = infcurve(p,beta,sigma, days)
 
 #this is the variable for the infected curves changing one variable and 
 #leaving the other one constant.
-BC = B_listC(14,p)
-YC = Y_listC(14,p)
+Stepsize=14
+s=Stepsize
+BC = B_listC(s,p, days)
+YC = Y_listC(s,p, days)
 
 #these are the variables for the Monte Carlo peak graph
 print("starting peaks 3d curve")
-Stepsize=14
-s=Stepsize
 x = np.linspace(1/s, 1, s)
 y = np.linspace(1/s, 1, s)
 X, Y = np.meshgrid(x,y)
 mcpeak_vectorized = np.vectorize(mcpeak)
-Z = mcpeak_vectorized(X, Y)
+Z = mcpeak_vectorized(X, Y, p, days)
 
 #code--------------------------------------------------------------------------
 #this code makes a graph of the Monte Carlo SIR Model with a set population 
