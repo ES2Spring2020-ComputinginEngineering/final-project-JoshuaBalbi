@@ -15,7 +15,7 @@ specific variables to the Eulers method simulation:
 - t: set to zero as default do not recomend changing
 
 specific variables to the Monte Carlo method simulation:
-- days: it is recomended for the days to remain at 200, you would have to go intop the code and change the 200 value in the forloop for the function mcpeaks to the value of days desired.
+- days: it is recomended for the days to remain at 200, it is a good range and gets the total curve and mangnitude of the curves when the population is = to 100,000. it can be changed and is recomended to change if population is changes.
 
 The main variables that are encouraged to change are p, beta and sigma, since that is what we are truly focusing on, the effects of beta and sigma on the percentage of the population infected. if you want to change other variables, changing the code will be necesary in order for it to run properly.
 
