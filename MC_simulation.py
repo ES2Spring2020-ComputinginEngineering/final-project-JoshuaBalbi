@@ -71,6 +71,7 @@ def update(h,p,b,y):
 #iterate function updates the function  and then takes the sum of each array 
 #and appends each array length tp its respected new list of lengths
 def iterate_MC(p,b,y,m):
+    print("Test Running:" + str(b) + " " + str(y))
     h=simple(p)
     S_list=[h['Susceptible'].sum()]
     I_list=[h['infected'].sum()]

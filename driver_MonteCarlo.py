@@ -8,16 +8,16 @@ Created on Fri May  1 14:59:58 2020
 #Import statements-------------------------------------------------------------
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D 
-import MC_simulation
+from MC_simulation import *
 
 #variables---------------------------------------------------------------------
 #some variables carry over from one graph to the other   
 
 #this is the variables for Monte Carlo SIR model
-p=100000
+p=100
 beta=3/14
 sigma=1/14
-days=200
+days=150
 S_list,I_list,R_list,T_list =iterate_MC(p,beta,sigma,days)
 Slist=convert(S_list,p)
 Ilist=convert(I_list,p)
