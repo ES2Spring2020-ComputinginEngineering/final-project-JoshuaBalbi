@@ -48,7 +48,7 @@ def infected_ratio(p):
 #b is the amount of beta you want ranging from 0-1 with a stepsize of 1/b. 
 #it uses the function iterate with every beta in a forloop and prints out 
 #every infection curve in the range of 0-1. sigma is constant
-def B_list(b):
+def B_list(b, S, I, R, t):
     B=[]
     for i in range(0,b):
         list_I=(iterate_SIR(S, I, R, t, (i+1)/b, 1/b)[1::4])
@@ -59,7 +59,7 @@ def B_list(b):
 #y is the amount of sigma you want ranging from 0-1 with a stepsize of 1/y. 
 #it uses the function iterate with every sigma in a forloop and prints out 
 #every infection curve in the range of 0-1. beta is constant
-def Y_list(y):
+def Y_list(y, S, I, R, t):
     Y=[]
     for i in range(0,y):
         list_I=(iterate_SIR(S, I, R, t, 14/14, (i+1)/y)[1::4])
@@ -69,5 +69,5 @@ def Y_list(y):
 #peaks is used in order to find the maximum of each infected graph.
 #we use np.meshgrid and 3d graph in matplotlib in order to run every
 #combination of beta and sigma possible.
-def peak(x, y):
+def peak(x, y, S, I, R, t):
     return max(iterate_SIR(S, I, R, t, x, y)[1::4])

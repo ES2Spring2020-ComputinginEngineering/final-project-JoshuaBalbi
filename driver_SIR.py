@@ -8,13 +8,13 @@ Created on Fri May  1 14:50:56 2020
 #Import statements-------------------------------------------------------------
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D 
-import SIR_simulation 
+from SIR_simulation import *
 
 #variables---------------------------------------------------------------------
 #some variables carry over from one graph to the other   
 
 #this is the variables for simulation SIR model
-I,S=infected_ratio(100000)
+I, S =infected_ratio(100000)
 R=0
 t=0
 beta =3/14
@@ -25,8 +25,8 @@ list_R=(iterate_SIR(S, I, R, t, beta, sigma)[2::4])
 list_t=(iterate_SIR(S, I, R, t, beta, sigma)[3::4])
 
 #this is the variable for the infected curves.
-B=(B_list(14))  
-Ys=(Y_list(14)) 
+B=(B_list(14, S, I, R, t))  
+Ys=(Y_list(14, S, I, R, t)) 
 
 #these are the variables for the Monte Carlo peak graph
 Stepsize=14
@@ -35,7 +35,7 @@ x = np.linspace(1/s, 1, s)
 y = np.linspace(1/s, 1, s)
 X, Y = np.meshgrid(x,y)
 peak_vectorized = np.vectorize(peak)
-Z = peak_vectorized(X, Y)
+Z = peak_vectorized(X, Y, S, I, R, t)
 
 #code--------------------------------------------------------------------------
 
