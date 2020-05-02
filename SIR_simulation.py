@@ -38,7 +38,7 @@ def iterate_SIR(S, I, R, t, B, y):
 
 #the infected ratio function is used in order to attain a susceptible 
 #and a infected value from 0 to 1 using ratios of the whole population 
-#over one infected
+#over one infected.
 def infected_ratio(p):
     I=1/p
     S=(p-1)/p
